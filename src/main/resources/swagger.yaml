@@ -1,0 +1,75 @@
+swagger: "2.0"
+info:
+  version: "v1"
+  title: Sample Java Swagger API
+  description: Some boilerplate for building APIs
+host: localhost:10010
+basePath: /v1
+#
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /status:
+    get:
+      tags:
+        - status
+      summary: Get the current status of the system
+      x-swagger-router-controller: status
+      operationId: status
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/status"
+        500:
+          description: Fatal
+        default:
+          description: Success
+          schema:
+            $ref: "#/definitions/status"
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+definitions:
+  status:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Name of the API
+      status:
+        type: string
+        description: The overall status of the API
+        enum: ["OK", "WARN", "FATAL"]
+      checks:
+        type: "array"
+        description: List of checks that determined status.
+        items:
+          $ref: "#/definitions/check"
+    required:
+      - name
+      - checks
+
+  check:
+    type: object
+    description: An individual check
+    properties:
+      name:
+        type: string
+        description: The name of the check
+        example: "chain"
+      status:
+        type: string
+        description: The outcome of the check
+        enum: ["OK", "WARN", "FATAL"]
+      info:
+        type: object
+        description: An object containing any diagnostic info
+    required:
+      - name
+      - status
