@@ -61,7 +61,7 @@
                         </goals>
                         <configuration>
                             <inputSpec>src/main/resources/swagger.yaml</inputSpec>
-                            <ignoreFileOverride>${project.basedir}/.swagger-codegen-ignore</ignoreFileOverride>
+                            <ignoreFileOverride>${basedir}/.swagger-codegen-ignore</ignoreFileOverride>
                             <language>jaxrs</language>
                             <library>jersey2</library>
                             <configOptions>
