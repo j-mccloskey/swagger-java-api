@@ -3,7 +3,7 @@ info:
   version: "v1"
   title: Sample Java Swagger API
   description: Some boilerplate for building APIs
-host: localhost:10010
+host: localhost:8080
 basePath: /v1
 #
 schemes:
