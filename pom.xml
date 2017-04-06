@@ -14,7 +14,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <swagger-version>1.5.13</swagger-version>
-        <jersey-version>2.25.1</jersey-version>
+        <jersey-version>2.6</jersey-version>
         <jackson-version>2.8.7</jackson-version>
         <jodatime-version>2.9.9</jodatime-version>
         <junit-version>4.8.1</junit-version>
@@ -51,6 +51,15 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <warSourceDirectory>${basedir}/target/generated-sources/swagger/src/main/webapp</warSourceDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
                 <version>2.2.2</version>
@@ -73,11 +82,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
             </plugin>
         </plugins>
     </build>
@@ -102,6 +106,11 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
+            <version>${jersey-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
             <version>${jersey-version}</version>
         </dependency>
         <dependency>
