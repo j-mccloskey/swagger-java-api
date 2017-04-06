@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>swagger-java-api</artifactId>
+        <groupId>com.github.jmccloskey</groupId>
+        <version>0.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>acceptance-tests</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.dbunit-rules</groupId>
+            <artifactId>cucumber</artifactId>
+            <version>0.15.1</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
