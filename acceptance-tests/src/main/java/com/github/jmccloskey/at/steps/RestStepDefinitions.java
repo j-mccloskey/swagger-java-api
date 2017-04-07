@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 import java.net.URI;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,8 +23,8 @@ public class RestStepDefinitions {
     private ValidatableResponse response;
 
     @Inject
-    public RestStepDefinitions(RequestSpecification requestSpecification) {
-        this.requestSpecification = requestSpecification;
+    public RestStepDefinitions(Provider<RequestSpecification> requestSpecificationProvider) {
+        this.requestSpecification = requestSpecificationProvider.get();
         requestSpecification.log().all();
     }
 
