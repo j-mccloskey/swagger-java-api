@@ -17,7 +17,7 @@ Run API (inside tomcat container):
 $ docker-compose up api
 ```
 
-#### Acceptance Testing
+### Acceptance Testing
 
 Given the API is already running:
 ```bash
