@@ -1,3 +1,3 @@
 FROM tomcat:8.0.20-jre8
 
-COPY ./target/api-0.1.0.war /usr/local/tomcat/webapps/api.war
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
