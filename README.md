@@ -17,6 +17,12 @@ Run API (inside tomcat container):
 $ docker-compose up api
 ```
 
+Acceptance Testing:
+Given API is running
+```bash
+$ docker-compose up acceptance-test
+```
+
 Re-builds of war should be automatically picked up and deployed by a running API container.
 
 ### Non-docker

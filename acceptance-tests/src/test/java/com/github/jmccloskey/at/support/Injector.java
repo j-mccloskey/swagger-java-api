@@ -17,9 +17,7 @@ public class Injector implements InjectorSource {
 
     private class YourModule implements Module {
 
-        public void configure(Binder binder) {
-            System.out.println("inj");
-        }
+        public void configure(Binder binder) {}
 
         @Provides
         @Singleton
@@ -30,7 +28,7 @@ public class Injector implements InjectorSource {
         @Provides
         @ScenarioScoped
         RequestSpecification restRequestSpec() {
-            RestAssured.baseURI = "http://localhost";
+            RestAssured.baseURI = "http://" + TestConfig.host();
             RestAssured.port = 8080;
             RestAssured.basePath = "";
             RestAssured.useRelaxedHTTPSValidation();

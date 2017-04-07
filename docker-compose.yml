@@ -22,3 +22,14 @@ services:
       - 8080:8080
     volumes:
       - ./api/target/api-0.1.0.war:/usr/local/tomcat/webapps/ROOT.war
+
+  acceptance-test:
+    image: maven:3.3.9-jdk-8
+    networks:
+      - main
+    working_dir: /app
+    volumes:
+      - ./acceptance-tests:/app
+    environment:
+      IS_DOCKER: "true"
+    command: mvn test -Pacceptance-tests
