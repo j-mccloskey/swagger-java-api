@@ -18,7 +18,8 @@ $ docker-compose up api
 ```
 
 Acceptance Testing:
-Given API is running
+
+Given the API is already running
 ```bash
 $ docker-compose up acceptance-test
 ```
