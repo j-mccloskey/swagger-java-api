@@ -17,6 +17,11 @@ Run API (inside tomcat container):
 $ docker-compose up api
 ```
 
+Debugging (start in debug mode instead):
+```bash
+$ docker-compose up api-debug
+```
+
 ### Acceptance Testing
 
 Given the API is already running:

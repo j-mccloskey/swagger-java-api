@@ -23,6 +23,22 @@ services:
     volumes:
       - ./api/target/api-0.1.0.war:/usr/local/tomcat/webapps/ROOT.war
 
+  api-debug:
+    image: api
+    build: ./api
+    networks:
+      - main
+    ports:
+      - 8080:8080
+      - 8000:8000
+    volumes:
+      - ./api/target/api-0.1.0.war:/usr/local/tomcat/webapps/ROOT.war
+    environment:
+      JPDA_ADDRESS: "8000"
+      JPDA_TRANSPORT: "dt_socket"
+      JPDA_SUSPEND: "n"
+    command: catalina.sh jpda run
+
   acceptance-test:
     image: maven:3.3.9-jdk-8
     networks:
