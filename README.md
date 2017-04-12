@@ -29,7 +29,7 @@ Given the API is already running:
 $ docker-compose up acceptance-test
 ```
 
-#### Swagger Editor
+### Swagger Editor
 
 ```bash
 $ docker-compose up swagger-editor
