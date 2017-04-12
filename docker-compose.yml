@@ -11,7 +11,7 @@ services:
     working_dir: /app
     volumes:
       - ./api:/app
-    command: mvn clean package
+    command: mvn package
 
   api:
     image: api
@@ -49,3 +49,16 @@ services:
     environment:
       IS_DOCKER: "true"
     command: mvn test -Pacceptance-tests
+
+  swagger-editor:
+    image: ahannigan/swagger-node:alpine
+    networks:
+      - main
+    volumes:
+      - ./api/src/main/resources:/app/api/swagger
+    working_dir: /app
+    ports:
+      - "9000:9000"
+    command:
+      /bin/ash -c
+        "echo '{}' > package.json && swagger project edit --host 0.0.0.0 --port 9000 --silent"

@@ -29,6 +29,15 @@ Given the API is already running:
 $ docker-compose up acceptance-test
 ```
 
+#### Swagger Editor
+
+```bash
+$ docker-compose up swagger-editor
+```
+
+Open [localhost 9000](http://localhost:9000/#/) in a browser to view the Swagger Editor. 
+This allows you to try out or make changes to the API.
+
 Re-builds of war should be automatically picked up and deployed by a running API container.
 
 ### Non-docker
